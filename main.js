@@ -41,19 +41,39 @@ ctx2.moveTo(0, 70);
 ctx2.arc(100,100,50,20,100);
 ctx2.stroke();
 
-function drawPacman(x,y,radius){
+function drawPacman(x,y,radius, color="purple"){
+  ctx.fillText("WEEE", 7, 24, 90)
+  ctx.strokeText("WEEE", 8, 26, 89)
+  ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x,y,radius,degreesToRadians(30),degreesToRadians(320),false);
   ctx.lineTo(x,y);
   ctx.fill();
-
+ 
 }
+ctx.font= "14px Bauhaus"
+ctx.textAlign = "left"
 
 for (var y = 2; y <= 180; y += 20){
-  drawPacman (50,y,8)
+  drawPacman (50,y,8, "rgb("+(y+200)+",255,0)")
 }
 
 canvas.onclick= function (event){
   console.log(event)
   drawPacman(event.offsetX,event.offsetY,5)
 }
+
+  for (i=1; i <= 3; i ++){
+    ctx2.moveTo(25*i,0);
+    ctx2.lineTo (25*i,200);
+    ctx2.strokeStyle = "black"
+    ctx2.stroke();
+  }
+
+
+  for (i=1; i <= 10; i ++){
+  ctx2.moveTo(0, 25*i);
+  ctx2.lineTo (100,25*i);
+  ctx2.strokeStyle = "black"
+  ctx2.stroke();
+  }
